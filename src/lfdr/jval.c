@@ -35,6 +35,7 @@ Knoxville, TN 37996-3450
 Fax: 865-974-4404
  */
 #include <stdio.h>
+#include <string.h>
 #include "../../inc/lfdr/jval.h"
 
 Jval JNULL;

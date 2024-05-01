@@ -3,6 +3,7 @@
         "jval.h": "c",
         "fields.h": "c",
         "dllist.h": "c",
-        "jrb.h": "c"
+        "jrb.h": "c",
+        "readfile.h": "c"
     }
 }
