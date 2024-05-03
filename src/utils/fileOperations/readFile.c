@@ -11,7 +11,8 @@ _ReadFile *newReadFile(char *path)
         for (int i = 0; i < this->is->NF; i++) // loop for words
         {
             printf("%d: %s\n", this->is->line, this->is->fields[i]);
-        }
+                }
+        printf("\n");
     }
 }
 
