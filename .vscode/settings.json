@@ -4,6 +4,12 @@
         "fields.h": "c",
         "dllist.h": "c",
         "jrb.h": "c",
-        "readfile.h": "c"
+        "readfile.h": "c",
+        "stdlib.h": "c",
+        "stack.h": "c",
+        "createfile.h": "c",
+        "textgenerator.h": "c",
+        "operatorsenum.h": "c",
+        "string.h": "c"
     }
 }

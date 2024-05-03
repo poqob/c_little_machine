@@ -2,6 +2,7 @@
 #include <stdlib.h>
 _ReadFile *newReadFile(char *path)
 {
+    int wordCount = 0;
     _ReadFile *this = (_ReadFile *)malloc(sizeof(_ReadFile));
     this->path = new_jval_s(strdup(path));
     this->is = new_inputstruct(jval_s(this->path));
@@ -10,9 +11,11 @@ _ReadFile *newReadFile(char *path)
     {
         for (int i = 0; i < this->is->NF; i++) // loop for words
         {
-            printf("%d: %s\n", this->is->line, this->is->fields[i]);
-                }
-        printf("\n");
+            wordCount++;
+            // printf("%d: %s\n", this->is->line, this->is->fields[i]);
+        }
+        // send words to parser
+        wordCount = 0;
     }
 }
 
