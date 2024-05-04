@@ -8,15 +8,15 @@ Operators getOperator(char *c)
     {
         return WRITE;
     }
-    if (strcmp(c, "remove:") == 0 || strcmp(c, "sil:") == 0)
+    else if (strcmp(c, "remove:") == 0 || strcmp(c, "sil:") == 0)
     {
         return REMOVE;
     }
-    if (strcmp(c, "golast:") == 0 || strcmp(c, "sonagit:") == 0)
+    else if (strcmp(c, "golast:") == 0 || strcmp(c, "sonagit:") == 0)
     {
         return GOLAST;
     }
-    if (strcmp(c, "stop:") == 0 || strcmp(c, "dur:" == 0))
+    else if (strcmp(c, "stop:") == 0 || strcmp(c, "dur:" == 0)) // TODO: durun nesi var??
     {
         return STOP;
     }

@@ -57,5 +57,6 @@ boolean _goLastTextGenerator(TextGenerator *tg)
 // write to a file.
 boolean _stopTextGenerator(TextGenerator *tg)
 {
+    tg->text->str[tg->text->len - 1] = '\0';
     return tg->cf->create(tg->cf, tg->text->str);
 }
