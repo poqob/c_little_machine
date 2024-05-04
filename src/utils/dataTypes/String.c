@@ -17,6 +17,7 @@ String *newString(char *s)
     this->appendStr = &appendString;
     this->appendInt = &appendIntager;
     this->appendChar = &appendCharacterArray;
+    this->overrideFromLocation = &overrideFromLoc;
     this->trim = &trimString;
     return this;
 }
@@ -120,4 +121,11 @@ String *newMultiplyString(char *chararr, int count)
     multiple = newString(result);
     multiple->trim(multiple); // Call trim on the String object's char array
     return multiple;
+}
+
+void overrideFromLoc(String *this, int location, char *text)
+{
+    int len = strlen(text);
+    for (int i = 0; i < len; i++)
+        this->str[location + i] = text[i];
 }

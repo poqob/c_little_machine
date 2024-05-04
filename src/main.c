@@ -43,8 +43,13 @@ int main(int argc, char **argv)
     fclose(f);
 
     String *st = newString("");
-    appendCharacterArray(st, "bu bir string ifade:");
-    appendCharacterArray(st, "bu da ikinci\nstring ifade");
+    char *str = "bu bir string ifade:";
+    appendCharacterArray(st, str);
+    char *str2 = "bu da ikinci\nstring ifade";
+    appendCharacterArray(st, str2);
+    st->overrideFromLocation(st, 3, "zu");
+    st->appendChar(st, "\ntest satiri.");
+
     printf("%s\n", st->str);
     return 0;
 }

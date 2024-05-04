@@ -18,6 +18,7 @@ struct String
     void (*appendStr)(String *this, String *string);
     void (*appendInt)(String *this, int val);
     void (*appendChar)(String *this, char *val);
+    void (*overrideFromLocation)(String *this, int location, char *val);
     String *(*trim)(String *this);
 };
 
@@ -27,6 +28,7 @@ int getStringSize(String *str);
 void appendString(String *this, String *str);
 void appendIntager(String *this, int val);
 void appendCharacterArray(String *this, char *val);
+void overrideFromLoc(String *this, int location, char *val);
 String *trimString(String *str);
 String *newMultiplyString(char *chararr, int count);
 #endif // STRING
