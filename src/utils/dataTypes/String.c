@@ -17,6 +17,7 @@ String *newString(char *s)
     this->appendStr = &appendString;
     this->appendInt = &appendIntager;
     this->appendChar = &appendCharacterArray;
+    this->removeAt = &removeAtString;
     this->overrideFromLocation = &overrideFromLoc;
     this->trim = &trimString;
     return this;
@@ -126,6 +127,33 @@ String *newMultiplyString(char *chararr, int count)
 void overrideFromLoc(String *this, int location, char *text)
 {
     int len = strlen(text);
+
+    // realloc memory if needed
+    if ((location + len) > this->len)
+    {
+        int oldLen = this->len;
+        this->len = location + len + 1;
+        this->str = realloc(this->str, this->len);
+    }
+    // override the text
     for (int i = 0; i < len; i++)
         this->str[location + i] = text[i];
+    this->str[this->len] = '\0';
+}
+
+void removeAtString(String *this, int location)
+{
+    if (location < this->len)
+    {
+        for (int i = location; i < this->len; i++)
+        {
+            this->str[i] = this->str[i + 1];
+        }
+        this->len--;
+        this->str = realloc(this->str, this->len);
+    }
+    else
+    {
+        printf("Removing location is out of range\n");
+    }
 }

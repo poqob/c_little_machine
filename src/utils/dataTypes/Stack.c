@@ -1,6 +1,6 @@
 #include "../../../inc/utils/dataTypes/Stack.h"
 #include <stdlib.h> // Include for memory allocation
-
+#include <string.h>
 // Function implementations
 
 void initializeStack(Stack *s)

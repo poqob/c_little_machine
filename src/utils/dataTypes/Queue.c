@@ -1,7 +1,7 @@
 #include "../../../inc/utils/dataTypes/Queue.h"
 #include <stdlib.h> // Include for memory allocation
 #include <stdio.h>
-
+#include <string.h>
 // Function implementations
 
 void initializeQueue(Queue *q, int initial_capacity)

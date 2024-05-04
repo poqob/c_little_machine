@@ -2,7 +2,7 @@
 #define QUEUE_H
 
 #include <stdlib.h> // Include for memory allocation
-
+#include <string.h>
 typedef struct Queue
 {
     char **data;  // Array of pointers to char
