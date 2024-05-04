@@ -5,12 +5,13 @@ TextGenerator *initializeTextGenerator(TextGenerator *tg)
 {
 
     tg = (TextGenerator *)malloc(sizeof(TextGenerator));
+    tg->cf = CreateFileConstructor(tg->cf, "./data/output.dat");
     tg->cursorPos = 0;
     tg->text = newString("");
-    tg->write = _write;
-    tg->remove = _remove;
-    tg->goLast = _goLast;
-    tg->stop = _stop;
+    tg->write = &_writeTextGenerator;
+    tg->remove = &_removeTextGenerator;
+    tg->goLast = &_goLastTextGenerator;
+    tg->stop = &_stopTextGenerator;
     return tg;
 }
 
@@ -19,25 +20,42 @@ TextGenerator *initializeTextGenerator(TextGenerator *tg)
 // 1. cursor ortada ya da başta bir yerde kalır
 // 2. hiçbir şey silinmez ve cursor en sonda konumlarnır.
 // TODO: ilk durum için yapılması gereken metnin override edilmesi. Bunu String kütüphanesi ile nasıl uyumlu başarırsın düşün???
-static boolean _write(TextGenerator *tg, Operators operator, int count, char *text)
+boolean _writeTextGenerator(TextGenerator *tg, int count, char *text)
 {
-    if (operator== WRITE)
+    for (int i = 0; i < count; i++)
     {
-        for (int i = 0; i < count; i++)
-            appendCharacterArray(tg->text, text);
-
-        return true;
+        tg->text->overrideFromLocation(tg->text, tg->cursorPos, text);
+        tg->cursorPos += strlen(text);
     }
-    return false;
+    return true;
 }
 
-static boolean _remove(TextGenerator *tg, Operators operator, int count, char *text)
+// TODO:scan the text from the CURRENT position to the beginning if there is a CHARACTER to remove then remove it.
+boolean _removeTextGenerator(TextGenerator *tg, int count, char *text)
 {
-    if (operator== REMOVE)
+    int removedCharCount = 0;
+    while (tg->cursorPos > -1 && removedCharCount < count)
     {
-        for (int i = 0; i < count; i++)
-            removeCharacterArray(tg->text, text);
-        return true;
+        if (tg->text->str[tg->cursorPos] == text[0])
+        {
+            tg->text->removeAt(tg->text, tg->cursorPos);
+            removedCharCount++;
+        }
+        tg->cursorPos--;
     }
-    return false;
+    if (tg->cursorPos < 0)
+        tg->cursorPos = 0;
+    return true;
+}
+
+boolean _goLastTextGenerator(TextGenerator *tg)
+{
+    tg->cursorPos = strlen(tg->text->str);
+    return true;
+}
+
+// write to a file.
+boolean _stopTextGenerator(TextGenerator *tg)
+{
+    return tg->cf->create(tg->cf, tg->text->str);
 }
