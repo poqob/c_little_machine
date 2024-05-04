@@ -4,6 +4,7 @@ CreateFile *CreateFileConstructor(CreateFile *createFile, char *fileName)
 {
     createFile = (CreateFile *)malloc(sizeof(CreateFile));
     createFile->fileName = fileName;
+    createFile->create = &create;
     return createFile;
 }
 

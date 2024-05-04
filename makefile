@@ -16,6 +16,7 @@ compile_datastructures:
 
 compile_parser:
 	gcc -I ./inc/parser -o ./obj/operatorsEnum.o -c ./src/parser/operatorsEnum.c
+	gcc -I ./inc/generator -o ./obj/textGenerator.o -c ./src/generator/textGenerator.c
 	gcc -I ./inc/parser -o ./obj/parser.o -c ./src/parser/parser.c
 
 compile_fileOperations:
@@ -29,7 +30,7 @@ compile:
 #gcc -I ./inc -o ./bin/output ./obj/dllist.o ./obj/fields.o ./obj/jrb.o ./obj/jval.o ./src/main.c
 	
 	gcc -g -I/inc/ -o  ./obj/main.o -c ./src/main.c
-	gcc -g -o ./bin/output ./obj/String.o ./obj/Boolean.o ./obj/Queue.o ./obj/CodeLine.o ./obj/Stack.o ./obj/operatorsEnum.o ./obj/parser.o ./obj/readFile.o ./obj/createFile.o ./obj/main.o ./lib/lfdr.a
+	gcc -g -o ./bin/output ./obj/String.o ./obj/Boolean.o ./obj/Queue.o ./obj/CodeLine.o ./obj/Stack.o ./obj/operatorsEnum.o ./obj/textGenerator.o ./obj/parser.o ./obj/readFile.o ./obj/createFile.o ./obj/main.o ./lib/lfdr.a
 
 	
 

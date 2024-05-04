@@ -6,6 +6,7 @@
 #include "../inc/utils/dataTypes/Queue.h"
 #include "../inc/utils/dataTypes/Boolean.h"
 #include "../inc/utils/dataTypes/String.h"
+#include "../inc/generator/textGenerator.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -43,13 +44,34 @@ int main(int argc, char **argv)
     fclose(f);
 
     String *st = newString("");
-    char *str = "bu bir string ifade:";
-    appendCharacterArray(st, str);
-    char *str2 = "bu da ikinci\nstring ifade";
-    appendCharacterArray(st, str2);
-    st->overrideFromLocation(st, 3, "zu");
-    st->appendChar(st, "\ntest satiri.");
+    int pos = 0;
+    char *txt = "test:";
+    pos += strlen(txt);
+    st->appendChar(st, txt);
+    st->overrideFromLocation(st, pos, "deneme");
+    pos += strlen("deneme");
+    st->overrideFromLocation(st, pos - 1, "okul");
+    pos += strlen("okul") - 1;
+    st->removeAt(st, pos - 2);
 
+    TextGenerator *tg = initializeTextGenerator(tg);
+    tg->write(tg, 3, "a");
+    tg->write(tg, 3, "b");
+    tg->write(tg, 1, "\n");
+    tg->goLast(tg);
+    tg->write(tg, 3, "z");
+    tg->write(tg, 3, "a");
+    tg->write(tg, 3, "b");
+    tg->write(tg, 3, "c");
+    tg->remove(tg, 2, "z");
+    // tg->goLast(tg);
+    tg->write(tg, 1, "o");
+    tg->write(tg, 2, " ");
+    tg->write(tg, 2, "o");
+
+    tg->stop(tg);
     printf("%s\n", st->str);
+
+    st->destroy(st);
     return 0;
 }
