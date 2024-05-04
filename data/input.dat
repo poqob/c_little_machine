@@ -1,4 +1,10 @@
-yaz: 1 a 2 b 3 c
-sil: 1 c
-sonagit:
-dur:
+write: 2 * 9 - 2 * 1 \n
+write: 3 \b 2 n 2 z 2 a 3 \n
+write: 3 \b 2 b 2 c 
+write: 2 w 2 \b 
+golast:
+remove: 1 z
+write: 2 u 2 a
+golast:
+write: 1 \n 2 * 9 - 2 *
+stop:
