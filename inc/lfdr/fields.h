@@ -39,8 +39,10 @@ Fax: 865-974-4404
 
 /* The fields library -- making input processing easier */
 
+#include <ctype.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #define MAXLEN 1001
 #define MAXFIELDS 1000
 

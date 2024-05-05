@@ -1,7 +1,7 @@
 
 #include "../../inc/parser/operatorsEnum.h"
 // dump operatorsEnum.h
-
+int strcmp(const char *str1, const char *str2);
 Operators getOperator(char *c)
 {
     if (strcmp(c, "write:") == 0 || strcmp(c, "yaz:") == 0)
@@ -16,7 +16,7 @@ Operators getOperator(char *c)
     {
         return GOLAST;
     }
-    else if (strcmp(c, "stop:") == 0 || strcmp(c, "dur:" == 0)) // TODO: durun nesi var??
+    else if (strcmp(c, "stop:") == 0 || strcmp(c, "dur:") == 0) // TODO: durun nesi var??
     {
         return STOP;
     }

@@ -12,7 +12,7 @@ struct _ReadFile
     CodeLine *codeLine;
     Jval path; // file path
     IS is;     // file op
-    void (*parse)(_ReadFile *this);
+    void *(*parse)(_ReadFile *this);
 };
 
 // @param char* path

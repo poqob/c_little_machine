@@ -1,8 +1,10 @@
 #include "../../../inc/utils/dataTypes/Queue.h"
+#include <string.h>
 #include <stdlib.h> // Include for memory allocation
 #include <stdio.h>
-#include <string.h>
 // Function implementations
+size_t strlen(const char *str);
+char *strcpy(char *destination, const char *source);
 
 void initializeQueue(Queue *q, int initial_capacity)
 {
@@ -24,7 +26,7 @@ int isFullQueue(Queue *q)
 
 void enqueueQueue(Queue *q, char *value)
 {
-    if (isFull(q))
+    if (isFullQueue(q))
     {
         resizeQueue(q, q->capacity * 2); // Double the capacity if full
     }
@@ -35,7 +37,7 @@ void enqueueQueue(Queue *q, char *value)
 
 char *dequeueQueue(Queue *q)
 {
-    if (isEmpty(q))
+    if (isEmptyQueue(q))
     {
         printf("Queue Underflow\n");
         return NULL; // Indicate error or a null pointer
@@ -51,7 +53,7 @@ char *dequeueQueue(Queue *q)
 
 char *peekQueue(Queue *q)
 {
-    if (isEmpty(q))
+    if (isEmptyQueue(q))
     {
         printf("Queue is Empty\n");
         return NULL; // Indicate error or a null pointer

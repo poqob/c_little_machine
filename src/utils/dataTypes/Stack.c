@@ -1,7 +1,9 @@
 #include "../../../inc/utils/dataTypes/Stack.h"
-#include <stdlib.h> // Include for memory allocation
 #include <string.h>
+#include <stdlib.h> // Include for memory allocation
 // Function implementations
+size_t strlen(const char *str);
+char *strcpy(char *destination, const char *source);
 
 void initializeStack(Stack *s)
 {

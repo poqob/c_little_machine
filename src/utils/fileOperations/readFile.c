@@ -20,9 +20,10 @@ void freeReadFile(_ReadFile *this)
 
 char *validCharacterControll(char *c)
 {
-    if (strchr(c, '\\b') != NULL && c[0] != 'b')
+    // 23650 '\\b' 23662 '\\n'
+    if (strchr(c, 23650) != NULL && c[0] != 'b')
         return " ";
-    if (strchr(c, '\\n') != NULL && c[0] != 'n')
+    if (strchr(c, 23662) != NULL && c[0] != 'n')
         return "\n";
     return c;
 }
