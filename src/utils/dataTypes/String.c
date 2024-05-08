@@ -1,9 +1,8 @@
 #include "../../../inc/utils/dataTypes/String.h"
 
-// i added them to prevent compile time warnings(not error).
-size_t strlen(const char *s);
+// i added them to prevent compile time warnings(not error).size_t strlen(const char *s);
 char *strcpy(char *dest, const char *src);
-void *strcat(char *dest, const char *src);
+char *strcat(char *dest, const char *src);
 
 // constructor
 String *newString(char *s)
@@ -129,16 +128,16 @@ void overrideFromLoc(String *this, int location, char *text)
     int len = strlen(text);
 
     // realloc memory if needed
-    if ((location + len) > this->len)
+    if ((location + len) >= this->len)
     {
         int oldLen = this->len;
-        this->len = location + len + 1;
+        this->len = oldLen + location + len + 1; // Add 1 to the length
         this->str = realloc(this->str, this->len);
     }
     // override the text
     for (int i = 0; i < len; i++)
         this->str[location + i] = text[i];
-    this->str[this->len] = '\0';
+    this->str[this->len] = '\0'; // Update the null-terminator position
 }
 
 void removeAtString(String *this, int location)

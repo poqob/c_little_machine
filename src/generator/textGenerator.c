@@ -15,11 +15,6 @@ TextGenerator *initializeTextGenerator(TextGenerator *tg)
     return tg;
 }
 
-// yazdıkça cursor pozisyonunu günceller
-// eğer silme işlemi gerçekleşirse iki durum oluşur
-// 1. cursor ortada ya da başta bir yerde kalır
-// 2. hiçbir şey silinmez ve cursor en sonda konumlarnır.
-// TODO: ilk durum için yapılması gereken metnin override edilmesi. Bunu String kütüphanesi ile nasıl uyumlu başarırsın düşün???
 boolean _writeTextGenerator(TextGenerator *tg, int count, char *text)
 {
     for (int i = 0; i < count; i++)
@@ -30,7 +25,7 @@ boolean _writeTextGenerator(TextGenerator *tg, int count, char *text)
     return true;
 }
 
-// TODO:scan the text from the CURRENT position to the beginning if there is a CHARACTER to remove then remove it.
+// scan the text from the CURRENT position to the beginning if there is a CHARACTER to remove then remove it.
 boolean _removeTextGenerator(TextGenerator *tg, int count, char *text)
 {
     int removedCharCount = 0;

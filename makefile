@@ -10,8 +10,6 @@ compile_fdr:
 compile_datastructures:
 	gcc -I ./inc/utils/dataTypes -o ./obj/Boolean.o -c ./src/utils/dataTypes/Boolean.c
 	gcc -I ./inc/utils/dataTypes -o ./obj/String.o -c ./src/utils/dataTypes/String.c
-	gcc -I ./inc/utils/dataTypes -o ./obj/Stack.o -c ./src/utils/dataTypes/Stack.c
-	gcc -I ./inc/utils/dataTypes -o ./obj/Queue.o -c ./src/utils/dataTypes/Queue.c
 	gcc -I ./inc/utils/dataTypes -o ./obj/CodeLine.o -c ./src/utils/dataTypes/CodeLine.c
 
 compile_parser:
@@ -30,7 +28,7 @@ compile:
 #gcc -I ./inc -o ./bin/output ./obj/dllist.o ./obj/fields.o ./obj/jrb.o ./obj/jval.o ./src/main.c
 	
 	gcc -g -I/inc/ -o  ./obj/main.o -c ./src/main.c
-	gcc -g -o ./bin/output ./obj/String.o ./obj/Boolean.o ./obj/Queue.o ./obj/CodeLine.o ./obj/Stack.o ./obj/operatorsEnum.o ./obj/textGenerator.o ./obj/parser.o ./obj/readFile.o ./obj/createFile.o ./obj/main.o ./lib/lfdr.a
+	gcc -g -o ./bin/output ./obj/String.o ./obj/Boolean.o  ./obj/CodeLine.o  ./obj/operatorsEnum.o ./obj/textGenerator.o ./obj/parser.o ./obj/readFile.o ./obj/createFile.o ./obj/main.o ./lib/lfdr.a
 
 	
 
