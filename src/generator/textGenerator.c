@@ -1,11 +1,11 @@
 #include "../../inc/generator/textGenerator.h"
 // dump
 
-TextGenerator *initializeTextGenerator(TextGenerator *tg)
+TextGenerator *initializeTextGenerator(TextGenerator *tg, char *outputPath)
 {
 
     tg = (TextGenerator *)malloc(sizeof(TextGenerator));
-    tg->cf = CreateFileConstructor(tg->cf, "./data/output.dat");
+    tg->cf = CreateFileConstructor(tg->cf, outputPath);
     tg->cursorPos = 0;
     tg->text = newString("");
     tg->write = &_writeTextGenerator;
@@ -53,5 +53,6 @@ boolean _goLastTextGenerator(TextGenerator *tg)
 boolean _stopTextGenerator(TextGenerator *tg)
 {
     tg->text->str[tg->text->len - 1] = '\0';
+    printf("the output is:\n%s\n", tg->text->str);
     return tg->cf->create(tg->cf, tg->text->str);
 }

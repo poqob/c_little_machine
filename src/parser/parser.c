@@ -1,9 +1,9 @@
 #include "../../inc/parser/parser.h"
 
-Parser *initializeParser(Parser *parser)
+Parser *initializeParser(Parser *parser, char *outputPath)
 {
     parser = (Parser *)malloc(sizeof(Parser));
-    parser->textGenerator = initializeTextGenerator(parser->textGenerator);
+    parser->textGenerator = initializeTextGenerator(parser->textGenerator, outputPath);
     parser->isOperator = isOperator;
     parser->isNumber = isNumber;
     parser->parse = parse;
@@ -91,7 +91,6 @@ void parse(Parser *p, CodeLine *codeline)
     }
 }
 
-// TODO: strcpy is may be better.
 char *snapshotForExecutedLine(Parser *parser)
 {
     String *st = newString("");

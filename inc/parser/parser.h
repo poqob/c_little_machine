@@ -25,7 +25,7 @@ struct Parser
 boolean isOperator(char *c);
 boolean isNumber(char *c);
 void parse(Parser *p, CodeLine *codeLine);
-Parser *initializeParser(Parser *parser);
+Parser *initializeParser(Parser *parser, char *outputPath);
 void destroyParser(Parser *parser);
 char *snapshotForExecutedLine(Parser *parser);
 

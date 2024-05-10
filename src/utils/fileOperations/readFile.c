@@ -1,11 +1,11 @@
 #include "../../../inc/utils/fileOperations/readFile.h"
 #include <stdlib.h>
-_ReadFile *newReadFile(_ReadFile *this, char *path)
+_ReadFile *newReadFile(_ReadFile *this, char *inputPath, char *outputPath)
 {
     this = (_ReadFile *)malloc(sizeof(_ReadFile));
-    this->parser = initializeParser(this->parser);
-    this->path = new_jval_s(strdup(path));
-    this->is = new_inputstruct(jval_s(this->path));
+    this->parser = initializeParser(this->parser, outputPath);
+    this->inputPath = new_jval_s(strdup(inputPath));
+    this->is = new_inputstruct(jval_s(this->inputPath));
     this->parse = parseFile;
 
     return this;
@@ -14,7 +14,7 @@ _ReadFile *newReadFile(_ReadFile *this, char *path)
 void freeReadFile(_ReadFile *this)
 {
     // free(this->is);
-    // jettison_inputstruct(this->path);
+    // jettison_inputstruct(this->inputPath);
     //  free(this);
 }
 

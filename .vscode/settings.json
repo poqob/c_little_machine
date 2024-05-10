@@ -12,6 +12,8 @@
         "operatorsenum.h": "c",
         "string.h": "c",
         "parser.h": "c",
-        "queue.h": "c"
+        "queue.h": "c",
+        "ihandler.h": "c",
+        "boolean.h": "c"
     }
 }

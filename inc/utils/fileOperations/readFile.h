@@ -5,18 +5,20 @@
 #include "../../lfdr/dllist.h"
 #include "../dataTypes/CodeLine.h"
 #include "../../parser/parser.h"
+// TODO: code the destructors.
 typedef struct _ReadFile _ReadFile;
 struct _ReadFile
 {
     Parser *parser;
     CodeLine *codeLine;
-    Jval path; // file path
-    IS is;     // file op
+    Jval inputPath;  // file path
+    Jval outputPath; // file path
+    IS is;           // file op
     void *(*parse)(_ReadFile *this);
 };
 
 // @param char* path
-_ReadFile *newReadFile(_ReadFile *this, char *);
+_ReadFile *newReadFile(_ReadFile *this, char *, char *);
 void freeReadFile(_ReadFile *);
 char *validCharacterControll(char *c);
 void *parseFile(_ReadFile *this);

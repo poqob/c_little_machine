@@ -1,4 +1,4 @@
-all: compile_fdr compile_datastructures compile_parser compile_fileOperations compile run 
+all: compile_fdr compile_datastructures compile_parser compile_fileOperations compile  
 
 compile_fdr:
 	gcc -I ./inc/lfdr -o ./obj/dllist.o -c ./src/lfdr/dllist.c
@@ -18,6 +18,8 @@ compile_parser:
 	gcc -I ./inc/parser -o ./obj/parser.o -c ./src/parser/parser.c
 
 compile_fileOperations:
+	gcc -I ./inc/utils/Ihandler -o ./obj/ihandler.o -c ./src/utils/Ihandler/ihandler.c
+
 	gcc -I ./inc/utils/fileOperations -o ./obj/readFile.o -c ./src/utils/fileOperations/readFile.c
 	gcc -I ./inc/utils/fileOperations -o ./obj/createFile.o -c ./src/utils/fileOperations/createFile.c
 
@@ -28,13 +30,13 @@ compile:
 #gcc -I ./inc -o ./bin/output ./obj/dllist.o ./obj/fields.o ./obj/jrb.o ./obj/jval.o ./src/main.c
 	
 	gcc -g -I/inc/ -o  ./obj/main.o -c ./src/main.c
-	gcc -g -o ./bin/output ./obj/String.o ./obj/Boolean.o  ./obj/CodeLine.o  ./obj/operatorsEnum.o ./obj/textGenerator.o ./obj/parser.o ./obj/readFile.o ./obj/createFile.o ./obj/main.o ./lib/lfdr.a
+	gcc -g -o ./bin/output ./obj/String.o ./obj/Boolean.o  ./obj/CodeLine.o  ./obj/operatorsEnum.o ./obj/textGenerator.o ./obj/parser.o ./obj/ihandler.o ./obj/readFile.o ./obj/createFile.o ./obj/main.o ./lib/lfdr.a
 
 	
 
-
+# example 
 run:
-	./bin/output ./data/input.dat
+	./bin/output ./data/input.dat ./data/output.dat
 
 clean:
 	rm -f ./obj/*.o
