@@ -1,6 +1,6 @@
 # CLittleMachine
 
-# Ekip
+# Team
 This project is developed by myself.
 
 # Purpose
