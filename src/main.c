@@ -23,5 +23,3 @@ int main(int argc, char **argv)
     free(rf);
     return 0;
 }
-
-// TODO: Örnek çalışma ekran çıktılarına ait pdf döküman
