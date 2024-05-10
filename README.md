@@ -1,38 +1,61 @@
-# Libfdr
+# CLittleMachine
 
-**This repository is a copy of Dr. Jim Plank's libraries for fields, doubly-linked lists, and red-black trees. All rights are his. I've made this repo so that other people can have easy, up-to-date access to this library without being connected to the computers UTK's Hydra computer lab. Below are Dr. Plank's disclamers, documentation info, and licensing info.**
+# Ekip
+This project is developed by myself.
 
-Libraries for fields, doubly-linked lists and red-black trees.
-Copyright (C) 2001 James S. Plank
+# Purpose
+The purpose of the project is to interpret a predefined language with its rules and provide the appropriate written output.
 
-This library is free software; you can redistribute it and/or
-modify it under the terms of the GNU Lesser General Public
-License as published by the Free Software Foundation; either
-version 2.1 of the License, or (at your option) any later version.
+# Content
+**Src klasörü iç yapısı**
 
-This library is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-Lesser General Public License for more details.
+_Text generation is done here._
+-generator
+ -textGenerator.c
 
-You should have received a copy of the GNU Lesser General Public
-License along with this library; if not, write to the Free Software
-Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+_libfdr source codes_
+-lfdr
+ -dllist.c
+ -fields.c
+ -jrb.c
+ -jval.c
 
----------------------------------------------------------------------------
-Please see http://www.cs.utk.edu/~plank/plank/classes/cs360/360/notes/Libfdr/
-for instruction on how to use this library.
 
-Jim Plank
-plank@cs.utk.edu
-http://www.cs.utk.edu/~plank
+_Code splitting methods are done here._
+-parser 
+ -operatorEnum.c
+ -parser.c
 
-Associate Professor
-Department of Computer Science
-University of Tennessee
-203 Claxton Complex
-1122 Volunteer Blvd.
-Knoxville, TN 37996-3450
+_Data types, file operations and input controls are done here._
+-utils 
+ -dataTypes
+  -Boolean.c
+  -CodeLine.c
+  -String.c
+ -fileOperations
+  -createFile.c
+  -readFile.c
+ -Ihandler
+  -ihandler.c
 
-865-974-4397
-Fax: 865-974-4404
+_main dosyası_
+-main.c
+
+# Compile
+unix: make
+windows: mingw32-make
+
+# Run
+After compilation, all project libraries are combined into the ./bin/output file path.
+
+To run the output in the ./bin/output file path, it must take two parameters from the command line.
+
+parameter1: input file path
+parameter2: output file path
+
+Recommendation: The 'data' folder is allocated for input and output files, use it.
+
+usage: ./bin/output ./data/input.dat ./data/output.dat
+
+## Output
+The program output is printed to the screen as well as written to the output.dat file.
